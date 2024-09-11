@@ -1,0 +1,520 @@
+<html><head><base href="portifolio.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Salesforce</title>
+    <style>
+        :root {
+            --sf-blue: #00A1E0;
+            --sf-cloud: #0070D2;
+            --sf-sky: #1798C1;
+            --sf-smoke: #F4F6F9;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Salesforce Sans', Arial, sans-serif;
+            background-color: var(--sf-smoke);
+            color: #333;
+        }
+        header {
+            background-color: var(--sf-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        h1, h2, h3 {
+            position: relative;
+            z-index: 2;
+        }
+        nav {
+            background-color: var(--sf-cloud);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--sf-sky);
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background-color: var(--sf-smoke);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 1rem;
+        }
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .badge {
+            background-color: var(--sf-cloud);
+            color: white;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .badge-icon {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .challenge-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .challenge-item {
+            background-color: var(--sf-smoke);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .challenge-name {
+            font-weight: bold;
+        }
+        .challenge-status {
+            background-color: var(--sf-cloud);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        footer {
+            background-color: var(--sf-cloud);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: var(--sf-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: var(--sf-sky);
+        }
+        .ver-mais-btn {
+            background-color: var(--sf-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        .ver-mais-btn:hover {
+            background-color: var(--sf-sky);
+        }
+        .hidden {
+            display: none;
+        }
+        .profile-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .profile-picture {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-info {
+            flex: 1;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--sf-blue);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .social-link:hover {
+            color: var(--sf-sky);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <svg class="header-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="#ffffff" />
+            <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#ffffff" stroke-width="2" />
+        </svg>
+        <h1>Amanda Ramos</h1>
+        <p>Bem-vindo ao mundo de inovação e soluções Salesforce</p>
+        <p>Desenvolvedor Salesforce | Certification Administrator </p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#emblemas">Emblemas</a></li>
+            <li><a href="#desafios">Desafios</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="sobre" class="section">
+            <div class="profile-container">
+                <img src="C:\Users\amand\Downloads\IMG_20240406_183702_913.jpg" alt="Foto de perfil" class="profile-picture" width="200" height="200">
+                <div class="profile-info">
+                    <h2>Sobre Mim</h2> 
+                    <p>Olá! Sou um desenvolvedor Salesforce apaixonado por criar soluções inovadoras e eficientes. Com experiência em customização de CRM e desenvolvimento de aplicativos na plataforma Salesforce, estou sempre buscando novos desafios e oportunidades para expandir minhas habilidades.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projetos" class="section">
+            <h2>Projetos em Destaque</h2>
+            <div class="project-grid" id="projectGrid">
+                <div class="project-card">
+                    <img src="C:\Users\amand\Downloads\scr\testeicon.jpg" alt="Lista de Compras" class="project-image" width="300" height="200">
+                    <div class="project-info">
+                        <h3>Lista de Compras</h3>
+                        <p>Gerenciar compras de maneira organizada.</p>
+                        <a href="saiba_mais.html">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://salesforce-portfolio.example.com/images/integration-project.jpg" alt="Projeto Teste I" class="project-image" width="300" height="200">
+                    <div class="project-info">
+                        <h3>Projeto Teste I</h3>
+                        <p>Projeto Teste III.</p>
+                        <a href="https://salesforce-portfolio.example.com/projetos/integracao-erp">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://salesforce-portfolio.example.com/images/mobile-app-project.jpg" alt="Projeto Teste I" class="project-image" width="300" height="200">
+                    <div class="project-info">
+                        <h3>Projeto Teste I</h3>
+                        <p>Projeto Teste .</p>
+                        <a href="https://salesforce-portfolio.example.com/projetos/app-movel-vendas">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="project-card hidden">
+                    <img src="https://salesforce-portfolio.example.com/images/additional-project-1.jpg" alt="Projeto Teste I" class="project-image" width="300" height="200">
+                    <div class="project-info">
+                        <h3>Projeto Teste I</h3>
+                        <p>Projeto Teste I.</p>
+                        <a href="#">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="project-card hidden">
+                    <img src="https://salesforce-portfolio.example.com/images/additional-project-2.jpg" alt="Projeto Teste I" class="project-image" width="300" height="200">
+                    <div class="project-info">
+                        <h3>Projeto Teste I</h3>
+                        <p>Descrição do projeto adicional 2.</p>
+                        <a href="#">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+            <button id="verMaisProjetos" class="ver-mais-btn">Ver mais...</button>
+        </section>
+        
+        <section id="emblemas" class="section">
+            <h2>Emblemas e Certificações</h2>
+            <div class="badge-grid" id="badgeGrid">
+                <div class="badge">
+                    <div class="badge-icon">🏆</div>
+                    <div>Prepare for Your Salesforce Administrator Credential</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🌟</div>
+                    <div>Prepare Salesforce Certified Associate Credential</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">💻</div>
+                    <div>Salesforce Certified App Builder</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🚀</div>
+                    <div>Get Started with Data Cloud Quest</div>
+                </div>
+                <div class="badge hidden">
+                    <div class="badge-icon">🥇</div>
+                    <div>Administer Sales Cloud</div>
+                </div>
+                <div class="badge hidden">
+                    <div class="badge-icon">🥈</div>
+                    <div>Trailhead:Double Star Ranger</div>
+                </div>
+            </div>
+            <button id="verMaisEmblemas" class="ver-mais-btn">Ver mais...</button>
+        </section>
+        
+        <section id="desafios" class="section">
+            <h2>Desafios Concluídos</h2>
+            <ul class="challenge-list" id="challengeList">
+                <li class="challenge-item">
+                    <span class="challenge-name">Superbadge:Teste</span>
+                    <span class="challenge-status">Andamento</span>
+                </li>
+                <li class="challenge-item">
+                    <span class="challenge-name">Superbadge:Lightning Experience Reports & Dashboards Specialist</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item">
+                    <span class="challenge-name">Superbadge:Business Administration Specialist</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item">
+                    <span class="challenge-name">Superbadge:Access Governance Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item">
+                    <span class="challenge-name">Superbadge:User Authentication Settings Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:User Authentication Troubleshooting Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:Multi-Factor Authentication and Single Sign-On Settings Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:User Authentication Specialist Superbadge </span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:Authentication Governance Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:User Access Troubleshooting Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:Extended User Access and Restriction Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:User Access Fundamentals Superbadge Unit</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:Security Governance Specialist Superbadge</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:User Access Specialist Superbadge</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:Security Specialist Superbadge</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+                <li class="challenge-item hidden">
+                    <span class="challenge-name">Superbadge:Admin Super Set</span>
+                    <span class="challenge-status">Concluído</span>
+                </li>
+            </ul>
+            <button id="verMaisDesafios" class="ver-mais-btn">Ver mais...</button>
+        </section>
+        
+        <section id="contato" class="section">
+            <h2>Entre em Contato</h2>
+            <p>Conecte-se comigo nas redes profissionais:</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/amanda-ramos-a19548163/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0077B5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://www.salesforce.com/trailblazer/amandarr" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#00A1E0"><path d="M9.85 15.48l-2.78-3.09 2.55-2.83 2.78 3.09-2.55 2.83zm1.78-10.48c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 13c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                    Trailhead
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Meu Portfólio Salesforce. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            const badges = document.querySelectorAll('.badge');
+            const challengeItems = document.querySelectorAll('.challenge-item');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            projectCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+
+            badges.forEach(badge => {
+                badge.style.opacity = '0';
+                badge.style.transform = 'scale(0.8)';
+                badge.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(badge);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Ver mais functionality for projects
+            const projectGrid = document.getElementById('projectGrid');
+            const verMaisProjetosBtn = document.getElementById('verMaisProjetos');
+
+            if (projectCards.length > 3) {
+                for (let i = 3; i < projectCards.length; i++) {
+                    projectCards[i].classList.add('hidden');
+                }
+
+                verMaisProjetosBtn.addEventListener('click', function() {
+                    projectCards.forEach(card => card.classList.remove('hidden'));
+                    this.style.display = 'none';
+                });
+            } else {
+                verMaisProjetosBtn.style.display = 'none';
+            }
+
+            // Ver mais functionality for badges
+            const badgeGrid = document.getElementById('badgeGrid');
+            const verMaisEmblemasBtn = document.getElementById('verMaisEmblemas');
+
+            if (badges.length > 4) {
+                for (let i = 4; i < badges.length; i++) {
+                    badges[i].classList.add('hidden');
+                }
+
+                verMaisEmblemasBtn.addEventListener('click', function() {
+                    badges.forEach(badge => badge.classList.remove('hidden'));
+                    this.style.display = 'none';
+                });
+            } else {
+                verMaisEmblemasBtn.style.display = 'none';
+            }
+
+            // Ver mais functionality for challenges
+            const verMaisDesafiosBtn = document.getElementById('verMaisDesafios');
+
+            if (challengeItems.length > 4) {
+                for (let i = 4; i < challengeItems.length; i++) {
+                    challengeItems[i].classList.add('hidden');
+                }
+
+                verMaisDesafiosBtn.addEventListener('click', function() {
+                    challengeItems.forEach(item => item.classList.remove('hidden'));
+                    this.style.display = 'none';
+                });
+            } else {
+                verMaisDesafiosBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body></html>

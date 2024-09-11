@@ -1,0 +1,285 @@
+<html><head><base href="saiba_mais.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Lista de Compras | Portfólio Salesforce</title>
+    <style>
+        :root {
+            --sf-blue: #00A1E0;
+            --sf-cloud: #0070D2;
+            --sf-sky: #1798C1;
+            --sf-smoke: #F4F6F9;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Salesforce Sans', Arial, sans-serif;
+            background-color: var(--sf-smoke);
+            color: #333;
+        }
+        header {
+            background-color: var(--sf-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        h1, h2, h3 {
+            position: relative;
+            z-index: 2;
+        }
+        nav {
+            background-color: var(--sf-cloud);
+            padding: 1rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--sf-sky);
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-preview {
+            width: 100%;
+            height: 500px;
+            border: 2px solid var(--sf-cloud);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .kpi-card {
+            background-color: var(--sf-smoke);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+        }
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--sf-cloud);
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .tech-item {
+            background-color: var(--sf-sky);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        footer {
+            background-color: var(--sf-cloud);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--sf-sky);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: var(--sf-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <svg class="header-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="#ffffff" />
+            <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#ffffff" stroke-width="2" />
+        </svg>
+        <h1>Lista de Compras</h1>
+        <p>Um projeto de gerenciamento e organização pessoal.</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="portifolio.html#sobre">Sobre</a></li>
+            <li><a href="portifolio.html#projetos">Projetos</a></li>
+            <li><a href="portifolio.html#emblemas">Emblemas</a></li>
+            <li><a href="portifolio.html#desafios">Desafios</a></li>
+            <li><a href="portifolio.html#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="section">
+            <h2>Visão Geral do Projeto</h2>
+            <p>Esse projeto pode ajudar a gerenciar as compras de maneira organizada, economizando tempo e permitindo acompanhar os valores de forma precisa, algo muito útil no dia a dia. Além disso, essa aplicação é um ótimo exemplo de como automatizar processos comuns utilizando a plataforma Salesforce.</p>
+            
+           <div class="dashboard-preview">
+            <!-- Exibe o vídeo -->
+            <video width="100%" height="100%" controls>
+                <source src="C:\Users\amand\Downloads\scr\linkdin_projeto.mp4" type="video/mp4">
+                Seu navegador não suporta a exibição de vídeos.
+            </video>
+       <!-- Background -->
+                    <rect width="1200" height="500" fill="#f0f3f8"/>
+                </svg>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Principais Características</h2>
+            <ul>
+                <li>Criação de listas de compras com itens categorizados (higiene, alimentos, legumes, proteínas, etc.).</li>
+                <li>Cálculo automático do valor total estimado dos itens.</li>
+                <li>Classificação dos itens por tipo, ajudando a organizar de forma eficiente as compras.</li>
+                <li>Fluxo automatizado que facilita a criação e visualização de listas e itens, simplificando a experiência do usuário.</li>
+                <li>Esse projeto pode ajudar a gerenciar as compras de maneira organizada, economizando tempo e permitindo acompanhar os valores de forma precisa, algo muito útil no dia a dia. Além disso, essa aplicação é um ótimo exemplo de como automatizar processos comuns utilizando a plataforma Salesforce.</li>
+            </ul>
+        </section>
+        
+        <section class="section">
+            <h2>Objetos Personalizados</h2>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <h3>Lista de Compras</h3>
+                </div>
+                <div class="kpi-card">
+                    <h3>Item de Compras</h3>
+                </div>
+                <div class="kpi-card">
+                    <h3>Local de Compras</h3>
+                </div>
+                <div class="kpi-card">
+                    <h3>Fluxos</h3>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Stack Tecnológico</h2>
+            <div class="tech-stack">
+                <span class="tech-item">Salesforce Lightning</span>
+                <span class="tech-item">Salesforce Objects</span>
+                <span class="tech-item">Lightning App Builder</span>
+                <span class="tech-item">SOQL</span>
+                <span class="tech-item">Formulas e Campos Personalizados</span>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Desafios e Soluções</h2>
+            <p>Um dos principais desafios foi garantir a organização dos objetos personalizados e suas dependência. Para resolver isso, implementamos:</p>
+            <ul>
+                <li>Definir uma estrutura de dados eficiente para itens e listas de compras;</li>
+<p>Solução: A criação de objetos personalizados no Salesforce permitiu uma gestão clara e organizada dos dados, com relacionamentos adequados entre itens de compra e listas.</p>
+                <li>Automatizar a adição e atualização dos itens de compra;</li>
+<p>Solução: A implementação de fluxos no Salesforce permitiu automatizar processos, como a adição de itens às listas e a atualização automática do valor total conforme novos itens eram inseridos ou removidos.</p>
+                <li>Classificar e organizar os itens de forma eficiente;</li>
+<p>Solução: A criação de uma lista de opções (picklist) para a classificação dos itens em categorias, como higiene, alimentos, etc., ajudou a melhorar a organização, facilitando a visualização e o controle de compras.</p>
+                <li>Facilitar o uso para pessoas com diferentes níveis de experiência com tecnologia.</li>
+<p>Solução: Foco em um design simples e intuitivo, utilizando ferramentas visuais como o Lightning App Builder, que permitiu a criação de uma interface amigável e de fácil navegação.</p>
+            </ul>
+        </section>
+        
+        <section class="section">
+            <h2>Impacto no Negócio</h2>
+            <p>Após a implementação da Lista de Compras, espera-se que o usuário:</p>
+            <ul>
+                <li>Organização e Controle das tarefas cotidianas</li>
+                <li>Economia de Tempo</li>
+                <li>Precisão e Planejamento</li>
+            </ul>
+        </section>
+        
+        <section class="section">
+            <h2>Futura Melhoria Sistemica</h2>
+            <p>Estamos planejando as seguintes melhorias para o dashboard:</p>
+            <ul>
+                <li>Implementação de recursos de inteligência artificial para previsões avançadas</li>
+                <li>Notificações e Alertas</li>
+                <li>Gestão de estoque com itens da residência</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Portfólio Salesforce. Todos os direitos reservados.</p>
+        <a href="portifolio.html" class="cta-button">Voltar ao Portfólio</a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const kpiCards = document.querySelectorAll('.kpi-card');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            kpiCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>
